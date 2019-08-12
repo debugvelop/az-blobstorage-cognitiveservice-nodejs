@@ -36,8 +36,8 @@
 
         // Request parameters.
         var params = {
-            "visualFeatures": "Captions",
-            "details": "text",
+            "visualFeatures": "Categories,Description,Color",
+            "details": "",
             "language": "en",
         };
 
@@ -65,6 +65,15 @@
         .done(function(data) {
             // Show formatted JSON on webpage.
             $("#responseTextArea").val(JSON.stringify(data, null, 2));
+            
+            if (data.description && data.description.captions) {
+            var caption = data.description.captions[0];
+            
+              if (caption.text && caption.confidence) {
+                  captionSpan.text("Caption: " + caption.text +
+                      " (confidence: " + caption.confidence + ").");
+              }
+            }
         })
 
         .fail(function(jqXHR, textStatus, errorThrown) {
