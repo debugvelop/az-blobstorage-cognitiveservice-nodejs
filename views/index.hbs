@@ -8,6 +8,11 @@
 </form>
 <p id="message">{{message}}</p>
 
+<h2>Uploaded Images</h2>
+{{#each this.thumbnails}}
+  <img id="uploadImage" src="https://{{../accountName}}.blob.core.windows.net/{{../containerName}}/{{name}}" width="400">
+{{/each}}
+
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 <script type="text/javascript">
     function processImage() {
@@ -94,11 +99,6 @@ Image to analyze:
         <img id="sourceImage" width="400" />
     </div>
 </div>
-
-<h2>Generated Thumbnails</h2>
-{{#each this.thumbnails}}
-  <img id="uploadImage" src="https://{{../accountName}}.blob.core.windows.net/{{../containerName}}/{{name}}" width="400">
-{{/each}}
 
 <hr>
 <p>This app has no official privacy policy. Your data will be uploaded to a service in order to produce a thumbnail. Your images will be public once you upload them and there is no automated way to remove them.</p>
