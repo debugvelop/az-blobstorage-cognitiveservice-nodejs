@@ -37,7 +37,7 @@
         };
  
         // Display the image.
-        var sourceImageUrl = "https://dicodestore.blob.core.windows.net/image2upload/9825132602449511-Bodega%20Head,%20CA,%20US.jpg";
+        var sourceImageUrl = document.getElementById("inputImage").src;
         document.querySelector("#sourceImage").src = sourceImageUrl;
  
         // Make the REST API call.
@@ -91,7 +91,7 @@
 
 <h2>Generated Thumbnails</h2>
 {{#each this.thumbnails}}
-  <img src="https://{{../accountName}}.blob.core.windows.net/{{../containerName}}/{{name}}">
+  <img id="inputImage" src="https://{{../accountName}}.blob.core.windows.net/{{../containerName}}/{{name}}">
 {{/each}}
 
 <hr>
