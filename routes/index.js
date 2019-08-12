@@ -12,7 +12,7 @@ const {
 
 const express = require('express');
 const router = express.Router();
-const containerName = 'thumbnails';
+const containerName = 'image2upload';
 
 const sharedKeyCredential = new SharedKeyCredential(
   process.env.AZURE_STORAGE_ACCOUNT_NAME,
