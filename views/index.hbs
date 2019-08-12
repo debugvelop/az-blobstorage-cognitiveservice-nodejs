@@ -64,15 +64,6 @@
         .done(function(data) {
             // Show formatted JSON on webpage.
             $("#responseTextArea").val(JSON.stringify(data, null, 2));
-            
-            if (data.description && data.description.captions) {
-            var caption = data.description.captions[0];
-            
-              if (caption.text && caption.confidence) {
-                  captionSpan.text("Caption: " + caption.text +
-                      " (confidence: " + caption.confidence + ").");
-              }
-            }
         })
 
         .fail(function(jqXHR, textStatus, errorThrown) {
@@ -86,6 +77,7 @@
     };
 </script>
 
+<br></br>
 Enter the URL of uploaded image by <strong> right click the image </strong> and <strong> copy image link </strong>.
 <br><br>
 Image to analyze:
@@ -98,7 +90,7 @@ Image to analyze:
         Response:
         <br><br>
         <textarea id="responseTextArea" class="UIInput"
-                  style="width:580px; height:100px;"></textarea>
+                  style="width:580px; height:500px;"></textarea>
     </div>
     <div id="imageDiv" style="width:420px; display:table-cell;">
         Source image:
